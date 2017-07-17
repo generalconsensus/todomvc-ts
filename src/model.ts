@@ -1,7 +1,4 @@
 export class entryItem {
-    sid: string;
-    data: string;
-    check: boolean;
 
     constructor() {
 
@@ -10,7 +7,7 @@ export class entryItem {
     listEntries() {
         let length = localStorage.length;
         let entries: any[] = [];
-        for (let i :number = 0; i < length; i++) {
+        for (let i: number = 0; i < length; i++) {
             entries.push(localStorage.getItem(i.toString()));
         }
         return entries;
@@ -21,7 +18,7 @@ export class entryItem {
         let key = localStorage.length.toFixed();
         let currentNumber = localStorage.length;
         localStorage.setItem(key, data);
-        return(currentNumber++);
+        return (currentNumber++);
     }
 
     deleteEntry(value: string) {

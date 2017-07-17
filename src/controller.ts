@@ -1,21 +1,21 @@
-import { entryItem } from "./model";
-import { View } from "./view";
+import {entryItem} from "./model";
+import {View} from "./view";
 
 
 export class todo {
 
-    constructor () {
-        let items = View.prototype.listItems();
-        console.log(items);
+    constructor() {
+        View.prototype.listItems();
+
         // Add listeners
         let newTodo = <HTMLElement>document.body.querySelector(".new-todo");
         let destroy = <HTMLElement>document.body.querySelector(".destroy");
         if (newTodo) {
             newTodo.addEventListener("change", this.createTodo, false);
         }
-        // if (destroy) {
+        if (destroy) {
             destroy.addEventListener("click", this.deleteTodo, false);
-        // }
+        }
 
     }
 
@@ -29,10 +29,10 @@ export class todo {
     }
 
     deleteTodo(Event: any) {
-        let value :string = (Event.srcElement.parentNode.textContent as string);
+        let value: string = (Event.srcElement.parentNode.textContent as string);
         if (value) {
-             entryItem.prototype.deleteEntry(value);
-             View.prototype.deleteItem(Event);
+            entryItem.prototype.deleteEntry(value);
+            View.prototype.deleteItem(Event);
         }
     }
 }
